@@ -12,6 +12,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/ex-news', [UserPreferenceController::class, 'getExternalNews']);
 
 Route::group(['prefix' => '/password'], function () {
     Route::post('send-password-reset-email', [AuthController::class, 'sendPasswordResetEmail']);
