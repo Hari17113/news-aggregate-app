@@ -19,6 +19,5 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
         ]);
-        $user->createToken('auth_token');
     }
 }
