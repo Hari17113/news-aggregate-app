@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserPreferenceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,12 @@ Route::group(['prefix' => '/password'], function () {
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::group(['prefix' => 'articles'], function () {
-        Route::get('articles', [ArticleController::class, 'lists']);
+        Route::get('list', [ArticleController::class, 'lists']);
+        Route::get('show/{id}', [ArticleController::class, 'show']);
+    });
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('preferences/get-user-preferences', [UserPreferenceController::class, 'getUserPreferences']);
+        Route::post('preferences/set-user-preferences', [UserPreferenceController::class, 'setUserPreference']);
+        Route::get('news-feed', [UserPreferenceController::class, 'getNewsFeed']);
     });
 });
