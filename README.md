@@ -1,4 +1,4 @@
-A# Setting Up Laravel with Docker
+# Setting Up Laravel with Docker
 
 ## Steps:
 
